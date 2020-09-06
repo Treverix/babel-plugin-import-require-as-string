@@ -34,11 +34,11 @@ const requriedStyles = "body { color: red; }"
 ## Installation
 Install with your package manager of choice
 ```
-yarn add babel-plugin-transform-html-css-import-require-to-string
+yarn add babel-plugin-import-require-as-string
 ```
 
 ```
-npm i --save-dev babel-plugin-transform-html-css-import-require-to-string
+npm i --save-dev babel-plugin-import-require-as-string
 ```
 
 Then add the plugin to your `.babelrc`. The extensions option defines the file
@@ -48,7 +48,7 @@ into string literals.
 ```json
 {
   "plugins": [
-    ["transform-html-css-import-require-to-string", {
+    ["import-require-as-string", {
       "extensions": [".html", ".css"]
     }]
   ]
