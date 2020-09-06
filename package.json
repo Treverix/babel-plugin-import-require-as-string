@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-transform-html-css-import-require-to-string",
+  "name": "babel-plugin-import-require-as-string",
   "version": "1.0.0",
-  "description": "Turn HTML and CSS imports and requires into string vars",
+  "description": "Turn text file imports and requires into string constants",
   "main": "lib/index.js",
   "scripts": {
     "build:dev": "tsc && babel src --out-dir lib --copy-files",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sampsonjoliver/babel-plugin-transform-html-import-require-to-string"
+    "url": "git+https://github.com/Treverix/babel-plugin-import-require-as-string"
   },
   "keywords": [
     "babel-plugin",
@@ -22,9 +22,9 @@
   "author": "Andreas Dolk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sampsonjoliver/babel-plugin-transform-html-import-require-to-string/issues"
+    "url": "https://github.com/Treverix/babel-plugin-import-require-as-string/issues"
   },
-  "homepage": "https://github.com/sampsonjoliver/babel-plugin-transform-html-import-require-to-string#readme",
+  "homepage": "https://github.com/Treverix/babel-plugin-import-require-as-string#readme",
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/preset-env": "^7.11.5"

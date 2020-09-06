@@ -1,8 +1,8 @@
-# babel-plugin-transform-html-css-import-require-to-string
+# babel-plugin-import-require-as-string
 
-Turn HTML and CSSimports and requires into string vars. Make your transpiled code as verbose as this package name!
-
-Inspired by https://github.com/sampsonjoliver/babel-plugin-transform-html-import-require-to-string
+This turns imports and require calls into variable assignements
+and string literals, that contain the contents of the imported/required
+resources. 
 
 ## Example
 
@@ -20,8 +20,8 @@ Transform your imports
 ```js
 import template from "/assets/template.html"
 import styles from "/assets/my.css"
-const requiredTemplate = require("/assets/template.html)
-const requiredStyles = require("/assets/my.css)
+const requiredTemplate = require("/assets/template.html")
+const requiredStyles = require("/assets/my.css")
 ```
 to
 ```js
@@ -37,23 +37,20 @@ Install with your package manager of choice
 yarn add babel-plugin-transform-html-css-import-require-to-string
 ```
 
-Then use as per usual...
+```
+npm i --save-dev babel-plugin-transform-html-css-import-require-to-string
+```
 
-### Via `.babelrc`
+Then add the plugin to your `.babelrc`. The extensions option defines the file
+extensions for which imports or require calls will be converted
+into string literals.
+
 ```json
 {
-  "plugins": ["transform-html-css-import-require-to-string"]
+  "plugins": [
+    ["transform-html-css-import-require-to-string", {
+      "extensions": [".html", ".css"]
+    }]
+  ]
 }
-```
-
-### Via CLI
-```
-$ babel --plugins transform-html-css-import-require-to-string script
-```
-
-### Via Node API
-```js
-require("babel-core").transform("code", {
-  plugins: ["transform-html-css-import-require-to-string"]
-});
 ```

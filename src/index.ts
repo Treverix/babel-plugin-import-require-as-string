@@ -19,13 +19,14 @@ const endsWith = (str: string, search: string | string[]): boolean => {
 
 export default function ({types: t} : {types: typeof BabelTypes}): PluginObj {
   return {
-    name: 'babel-plugin-transform-html-css-import-require-to-string',
+    name: 'babel-plugin-import-require-as-string',
     visitor: {
       ImportDeclaration: {
         exit: function (path: NodePath<ImportDeclaration>, state) {
+          const extensions:string[] = state.opts.extensions ?? [];
           const importDeclaration: ImportDeclaration = path.node;
 
-          if (endsWith(importDeclaration.source.value, ['.html', '.css'])) {
+          if (endsWith(importDeclaration.source.value, extensions)) {
             const dir = p.dirname(p.resolve(state.file.opts.filename));
             const absolutePath = p.resolve(dir, importDeclaration.source.value);
             const html = fs.readFileSync(absolutePath, 'utf8');
@@ -54,7 +55,9 @@ export default function ({types: t} : {types: typeof BabelTypes}): PluginObj {
 
             if (moduleArg?.isStringLiteral()) {
               const argValue = moduleArg.node.value;
-              if (endsWith(argValue, ['.html', '.css'])) {
+
+              const extensions:string[] = state.opts.extensions ?? [];
+              if (endsWith(argValue, extensions)) {
                   const dir = p.dirname(p.resolve(state.file.opts.filename));
                   const absolutePath = p.resolve(dir, argValue);
 
